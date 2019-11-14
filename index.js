@@ -1,27 +1,36 @@
 const express = require('express')
+const { connect } = require('mongoose')
+const cookieSession = require('cookie-session')
 const passport = require('passport')
-const GoogleStrategy = require('passport-google-oauth20').Strategy
-const { googleClientID, googleClientSecret } = require('./config/keys')
+
+const { mongoURI, cookieKey } = require('./config/keys')
+
+require('./models/Users')
+require ('./services/passport')
+
+connect(mongoURI)
+    .then(() => {
+      console.log('Successfully connected to MongoDB Atlas!')
+    })
+    .catch((error) => {
+      console.log('Unable to connect to MongoDB Atlas!')
+      console.error(error)
+    })
 
 const app = express()
 
-passport.use(new GoogleStrategy({
-      clientID: googleClientID,
-      clientSecret: googleClientSecret,
-      callbackURL: '/auth/google/callback'
-    }, (aT) => {
-      console.log(aT)
+app.use(
+    cookieSession({
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      keys: [cookieKey]
+
     })
 )
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.get('/auth/google', passport.authenticate('google', {
-  scope: ['profile', 'email']
-}))
+require('./routes/authRoutes')(app)
 
-app.get('/auth/google/callback', ((req, res) => {
-  console.log(res)
-})
-)
 
 const PORT = process.env.PORT || 5000
 
