@@ -4,5 +4,7 @@ module.exports = {
   mongoURI: 'mongodb+srv://cjustinobi:cejowisz@email-dev-yeoso.mongodb.net/test?retryWrites=true&w=majority',
   cookieKey: 'helloworld',
   stripePublishableKey: 'pk_test_IIqt7UyjyJzXgeq4B6QcKlTp',
-  stripeSecretKey: 'sk_test_JbQHAdnDNvs6TMcjG6pS4CId'
+  stripeSecretKey: 'sk_test_JbQHAdnDNvs6TMcjG6pS4CId',
+  sendGridKey: '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',
+  redirectDomain: 'localhost:3000'
 }
