@@ -1,0 +1,30 @@
+.mobile-nav {
+  display: grid;
+  text-align: center;
+  align-content: center;
+}
+
+.cancel-icon {
+  color: #777;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.mobile-link {
+  color: #777;
+}
+
+.menu-icon {
+  width: 35px;
+  height: 5px;
+  background-color: #fefefe;
+  margin: 6px 0;
+}
+
+.sidenav-trigger {
+  margin-top: 10px !important;
+}
+
