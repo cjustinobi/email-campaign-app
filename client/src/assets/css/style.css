@@ -13,8 +13,12 @@
   cursor: pointer;
 }
 
-.mobile-link {
+.mobile-nav .mobile-link {
   color: #777;
+}
+
+.brand-logo {
+  margin-left: 10px;
 }
 
 .menu-icon {
