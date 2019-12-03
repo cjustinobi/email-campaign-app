@@ -21,7 +21,7 @@ class Header extends Component{
       case null:
         return null
       case false:
-        return <li><a href="/auth/google">Login With Google</a></li>
+        return <li><a href="/auth/google"><button className="btn">Login With Google</button></a></li>
       default:
         return [
             <li key="1"><Payments/></li>,
